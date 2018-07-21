@@ -54,69 +54,41 @@ public class SplitDoubleLinkedListIntoHalves {
 			return;
 		}
 		
-		Node firstEnd =null;
-		Node secondEnd = null;
+		Node firstEnd =temp;
+		Node secondEnd = temp;
 		
-		while (true) {
+		while (secondEnd.next!=head &&  secondEnd.next.next!=head) {
 			
-			
-			if (firstEnd==null) {
-				firstEnd = temp;
+			firstEnd =firstEnd.next;
+			secondEnd = secondEnd.next.next;
 				
-			}else{
-				firstEnd = firstEnd.next;
-			}
-			
-			
-		
-			
-			if (temp.next.value==head2.value) {
-
-				Node lN = temp;
-				Node sF = firstEnd.next;
-				sF.pre = lN;
-				lN.next = sF;
-				secondEnd = sF;
-				Node tempF = firstEnd;
-				firstEnd = head2;
-				tempF.next = firstEnd;
-						
-				
-				
-				break;
-				
-			}else if (temp.next.next.value==head2.value) {
-				
-				Node lN = temp.next;
-				Node sF = firstEnd.next;
-				sF.pre = lN;
-				lN.next = sF;
-				secondEnd = sF;
-				
-				Node tempF = firstEnd;
-				firstEnd = head2;
-				tempF.next = firstEnd;
-				break;
-			}else{
-				secondEnd = temp.next.next;
-			}
-
-			
-			
-			
-			temp = temp.next.next;
-			
 		}
 		
 		
+		if (secondEnd.next.next==head) {
+			secondEnd = secondEnd.next;
+		}
+		
+		Node fHead = head;
+		Node sHead = null;
+		
+		if (head.next!=head) {
+			sHead = firstEnd.next;
+				
+		}
+		
+		
+		secondEnd.next = firstEnd.next;
+		firstEnd.next = fHead;
+		
+		
+		
 		System.out.println("first list===");
-		System.out.println(firstEnd.value+" "+firstEnd.next.value);
-		System.out.println("second list ===");
-		System.out.println(secondEnd.value+" "+secondEnd.next.value);
+		
 		System.out.println("=====end ===");
-		print(firstEnd);
+		print(fHead);
 		System.out.println("====");
-		print(secondEnd);
+		print(sHead);
 	}
 	private void print(Node currentHead) {
 		// TODO Auto-generated method stub
