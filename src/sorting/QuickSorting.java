@@ -8,7 +8,8 @@ public class QuickSorting {
 	//Merge sort is good for linkedlist as compare to Arrays
 	//1. Listedlist nodes may not be adjacent in memory so 
 	//2. Insert item in linkedlist with O(1) exra stroage & O(1) time complexity
-	//3. Random access is very issue in array as compare to linkedlist 
+	//3. Random access is very issue in array as compare to linkedlist
+	// average time complexity : o(nlog(n))	 
 	public static void main(String[] args){
         int arr[] = {10, 7, 8, 9, 1, 5};
         QuickSorting ob = new QuickSorting();
@@ -22,7 +23,7 @@ public class QuickSorting {
 		for (int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i]+" ");
 		}
-		System.out.println("====");
+		System.out.println("===="); 
 	}
 
 	private void sorting(int[] arr, int start, int total) {
