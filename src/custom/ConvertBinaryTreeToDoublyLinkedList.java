@@ -113,9 +113,7 @@ public class ConvertBinaryTreeToDoublyLinkedList {
 			
 			if (root.large!=null) {
 				printBT(root.large);
-			}
-			
-			
+			}			
 	}
 
 
