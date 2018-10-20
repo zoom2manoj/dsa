@@ -6,6 +6,18 @@ import javax.management.Query;
 
 import linkedlist.LinkedList;
 
+
+// 10 12 15 25 30 36
+
+//          10
+//        /    \
+//       12    15
+//     /   \  /
+//    25   30 36
+
+
+
+
 class ListNode  
 { 
     int data; 
