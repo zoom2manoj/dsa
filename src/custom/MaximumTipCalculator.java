@@ -75,7 +75,6 @@ public class MaximumTipCalculator {
 			System.out.println("B: " + set.b);
 			System.out.println("diff: " + set.diff);
 		}
-		System.out.println("testing " + set_vector);
 
 		int curr = 0;
 
