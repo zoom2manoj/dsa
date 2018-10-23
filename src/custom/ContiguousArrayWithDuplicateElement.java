@@ -4,25 +4,43 @@ import java.util.HashSet;
 
 public class ContiguousArrayWithDuplicateElement {
 
-	
-	public static void main(String[] args){
+	public static void main(String[] args) {
 		ContiguousArrayWithDuplicateElement obj = new ContiguousArrayWithDuplicateElement();
-		int[] arr = {5,2,3,6,4,4,6,6};
-		
-		obj.check(arr);
+		// int[] arr = {5,2,3,6,4,4,6,6};
+		int[] arr = { 10, 14, 10, 12, 12, 13, 15 };
+
+		System.out.println("" + obj.check(arr, arr.length));
 	}
 
-	private void check(int[] arr) {
-		HashSet<Integer> hs = new HashSet<Integer>();
-		
-		for (int i = 0; i < arr.length; i++) {
-				hs.add(arr[i]);
-				
+	private boolean check(int[] arr, int n) {
+
+		int min = Integer.MAX_VALUE;
+		int max = Integer.MIN_VALUE;
+
+		for (int i = 0; i < n; i++) {
+			max = Math.max(max, arr[i]);
+			min = Math.min(min, arr[i]);
 		}
-		
-		for (Integer integer : hs) {
-			System.out.println(""+integer);
-			
+
+		int m = max - min + 1;
+
+		if (m > n) {
+			return false;
 		}
+
+		boolean[] visited = new boolean[n];
+
+		for (int i = 0; i < n; i++) {
+			visited[arr[i] - min] = true;
+		}
+
+		for (int i = 0; i < m; i++) {
+			if (visited[i] == false) {
+				return false;
+			}
+		}
+
+		return true;
+
 	}
 }
