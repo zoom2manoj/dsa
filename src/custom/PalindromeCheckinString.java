@@ -1,22 +1,23 @@
 package custom;
 
+import java.util.Scanner;
+
 public class PalindromeCheckinString {
 
 	public static void main(String[] args) {
-		PalindromeCheckinString obj = new PalindromeCheckinString();
-
-		//Consider alphabets and numbers only for palindrome check. Ignore symbols and whitespaces.
 		
-		String value = "Ab?/Ba";
-		String valuw1 = "I am :IronnorI Ma, i";
+		Scanner kb = new Scanner(System.in);
+		int t = kb.nextInt();
 		
-//		String value = "madam1";
-
+		for (int i = 0; i < t; i++) {
+			//String value = kb.next();
+			isPalindrome(kb.nextLine());
+		}
 		
-		obj.isPalindrome(valuw1);
+		
 	}
 
-	private void isPalindrome(String value) {
+	private static void isPalindrome(String value) {
 		char[] stringChar = value.toLowerCase().toCharArray();
 		int startPoint = 0;
 		int entPoint = stringChar.length - 1;
@@ -49,7 +50,7 @@ public class PalindromeCheckinString {
 		}
 	}
 
-	private boolean isLetterOrDigit(char c) {
+	private static boolean isLetterOrDigit(char c) {
 		// TODO Auto-generated method stub
 		return Character.isLetter(c) || Character.isDigit(c);
 	}

@@ -1,24 +1,34 @@
 package custom;
 
+import java.util.Scanner;
+
 public class ClosestPalindromeNumber {
 
 	
 	public static void main(String[] args) {
-		String value = "1234";
+		//String value = "1234";
 		//String value = "123456";
-		String pal_value = new ClosestPalindromeNumber().nearestPalindromic(value);
-		System.out.println(pal_value);
+		//String pal_value = new ClosestPalindromeNumber().nearestPalindromic(value);
+		//System.out.println(pal_value);
+		
+		
+		Scanner kb=new Scanner(System.in);
+		int t=kb.nextInt();
+		for (int i = 0; i < t; i++) {
+			int value = kb.nextInt();
+			System.out.println(nearestPalindromic(String.valueOf(value)));
+		}
 		
 	}
 	
 	
 	
 	
-	    public String mirroring(String s) {
+	    public static String mirroring(String s) {
 	        String x = s.substring(0, (s.length()) / 2);
 	        return x + (s.length() % 2 == 1 ? s.charAt(s.length() / 2) : "") + new StringBuilder(x).reverse().toString();
 	    }
-	    public String nearestPalindromic(String n) {
+	    public static String nearestPalindromic(String n) {
 	        if (n.equals("1"))
 	            return "0";
 
