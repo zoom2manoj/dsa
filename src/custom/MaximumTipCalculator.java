@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Scanner;
 import java.util.Vector;
 
 public class MaximumTipCalculator {
@@ -16,22 +17,50 @@ public class MaximumTipCalculator {
 	
 	public static void main(String[] args) {
 
-		MaximumTipCalculator obj = new MaximumTipCalculator();
-		obj.maxTipCal();
+		//MaximumTipCalculator obj = new MaximumTipCalculator();
+		//obj.maxTipCal();
+		
+		
+
+		Scanner kb = new Scanner(System.in);
+		int t = kb.nextInt();
+		
+		for (int i = 0; i < t; i++) {
+			int n = kb.nextInt();
+			int x = kb.nextInt();
+			int y = kb.nextInt();
+			
+			int[] a = new int[n];
+			int[] b = new int[n];
+			
+			
+			for (int j = 0; j < n; j++) {
+				a[j] = kb.nextInt();
+			}
+			
+			for (int j = 0; j < n; j++) {
+				b[j] = kb.nextInt();
+			}
+			
+			maxTipCal(n, x, y, a, b);
+		}
 
 	}
 
-	private void maxTipCal() {
+	private static  void maxTipCal(int N, int X, int Y, int[] A, int[] B) {
 		// TODO Auto-generated method stub
 
-		int N = 5;
-		int X = 3;
-		int Y = 3;
+		//int N = 5;
+		//int X = 3;
+		//int Y = 3;
+		
+		//int[] A = a;
+		//int[] B = b;
+
+		
 		int total_tips = 0;
 
 		List<Set> set_vector = new ArrayList<MaximumTipCalculator.Set>();
-		int[] A = { 1, 2, 3, 4, 5 };
-		int[] B = { 5, 4, 3, 2, 1 };
 
 		for (int i = 0; i < A.length; i++) {
 			set_vector.add(new Set(A[i]));
@@ -47,13 +76,13 @@ public class MaximumTipCalculator {
 		}
 
 		// now sorting over vector with diff consideration
-		for (int i = 0; i < set_vector.size(); i++) {
-			Set set = set_vector.get(i);
-			System.out.println("A: " + set.a);
-			System.out.println("B: " + set.b);
-			System.out.println("diff: " + set.diff);
-		}
-		System.out.println("=============");
+		//for (int i = 0; i < set_vector.size(); i++) {
+			//Set set = set_vector.get(i);
+			//System.out.println("A: " + set.a);
+			//System.out.println("B: " + set.b);
+			//System.out.println("diff: " + set.diff);
+		//}
+		//System.out.println("=============");
 
 		Collections.sort(set_vector, new Comparator<Set>() {
 
@@ -69,12 +98,12 @@ public class MaximumTipCalculator {
 			}
 		});
 
-		for (int i = 0; i < set_vector.size(); i++) {
-			Set set = set_vector.get(i);
-			System.out.println("A: " + set.a);
-			System.out.println("B: " + set.b);
-			System.out.println("diff: " + set.diff);
-		}
+		//for (int i = 0; i < set_vector.size(); i++) {
+			//Set set = set_vector.get(i);
+			//System.out.println("A: " + set.a);
+			//System.out.println("B: " + set.b);
+			//System.out.println("diff: " + set.diff);
+		//}
 
 		int curr = 0;
 
@@ -109,7 +138,7 @@ public class MaximumTipCalculator {
 
 	}
 
-	class Set {
+	static class Set {
 		int a, b, diff;
 
 		public Set(int a) {

@@ -8,10 +8,10 @@ public class PalindromeCheckinString {
 		
 		Scanner kb = new Scanner(System.in);
 		int t = kb.nextInt();
-		
+		kb.nextLine();
 		for (int i = 0; i < t; i++) {
-			//String value = kb.next();
-			isPalindrome(kb.nextLine());
+			String value = kb.nextLine();
+			isPalindrome(value);
 		}
 		
 		
