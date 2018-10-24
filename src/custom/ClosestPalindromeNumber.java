@@ -30,10 +30,14 @@ public class ClosestPalindromeNumber {
 	        return x + (s.length() % 2 == 1 ? s.charAt(s.length() / 2) : "") + new StringBuilder(x).reverse().toString();
 	    }
 	    public static String nearestPalindromic(String n) {
-	        if (n.equals("1"))
-	            return "0";
-
+	        
+	    	if (n.length()==1) {
+				return n ;
+			}
 	        String a = mirroring(n);
+	        if (a.equals(n)) {
+				return a;
+			}
 	        long diff1 = Long.MAX_VALUE;
 	        diff1 = Math.abs(Long.parseLong(n) - Long.parseLong(a));
 	        if (diff1 == 0)
@@ -68,9 +72,7 @@ public class ClosestPalindromeNumber {
 	        String c = mirroring(s.toString());
 	        long diff3 = Math.abs(Long.parseLong(n) - Long.parseLong(c));
 
-	        if (a.equals(n)) {
-				return a;
-			}
+	        
 	        if (diff2 <= diff1 && diff2 <= diff3)
 	            return b;
 	        if (diff1 <= diff3 && diff1 <= diff2)
