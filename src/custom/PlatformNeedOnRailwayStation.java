@@ -1,7 +1,17 @@
 package custom;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
+import java.util.HashMap;
+
+
+import java.util.Iterator;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import java.util.TreeMap;
 
 public class PlatformNeedOnRailwayStation {
 
@@ -24,7 +34,8 @@ public class PlatformNeedOnRailwayStation {
 	    
 	    
 	    int n = arr.length; 
-	    System.out.println("Minimum Number of Platforms Required = " + PlatfindPlatform(arr, dep, n));
+	    System.out.println("Platforms required: "+needPlatform(arr, dep, n));
+	   // System.out.println("Minimum Number of Platforms Required = " + PlatfindPlatform(arr, dep, n));
 	    
 	    /*Scanner kb = new Scanner(System.in);
 	    int t = kb.nextInt();
@@ -45,20 +56,117 @@ public class PlatformNeedOnRailwayStation {
 		}*/
 	    
 	}
+	
+	
+	
+
+	private static String needPlatform(int[] arr, int[] dep, int n) {
+		
+		HashMap<Integer, List<Character>> hash = new HashMap<Integer, List<Character>>();
+		
+		
+		
+		
+		for (int i = 0; i < dep.length; i++) {
+			
+			if (hash.containsKey(arr[i])) {
+				List<Character> arrival = hash.get(arr[i]);
+				arrival.add('a');
+				hash.put(arr[i], arrival);
+				
+			}else{
+				
+				List<Character> arrival = new ArrayList<Character>();
+				arrival.add('a');
+				
+				hash.put(arr[i], arrival);	
+			}
+			
+			if (hash.containsKey(dep[i])) {
+				List<Character> arrival = hash.get(dep[i]);
+				arrival.add('d');
+				hash.put(dep[i], arrival);
+			}else{
+				List<Character> arrival = new ArrayList<Character>();
+				arrival.add('d');
+				
+				hash.put(dep[i], arrival);	
+			}
+			
+			
+			
+			
+		}
+		
+		Map<Integer, List<Character>> map = new TreeMap(hash); 
+
+		Iterator it = map.entrySet().iterator();
+		
+		int platform=0;
+		int result = 0;
+		
+		while (it.hasNext()) {
+			Map.Entry<Integer, List<Character>>  pair = (Entry<Integer, List<Character>>) it.next();
+			
+			
+			List<Character> pairList = pair.getValue();
+			
+			for (int i = 0; i < pairList.size(); i++) {
+				if (pairList.get(i)=='a') {
+					platform++;
+				}else{
+					platform--;
+				}
+				
+				if (platform>result ) {
+					result = platform;
+					}
+				
+			}
+			
+			
+			
+			
+		}
+		
+		
+		
+		return String.valueOf(result);
+	}
 
 	private static int  PlatfindPlatform(int[] arr, int[] dep, int n) {
 		// TODO Auto-generated method stub
 		
+		for (int j2 = 0; j2 < dep.length; j2++) {
+			System.out.print(", "+arr[j2]);
+		}
+		System.out.println("");
+		
+		for (int j2 = 0; j2 < dep.length; j2++) {
+			System.out.print(", "+dep[j2]);
+		}
+		System.out.println("");
+		
 		Arrays.sort(arr);
 		Arrays.sort(dep);
 		
-		int result = 0;
-		int needPlatform =0;
-		int i=0;
+		int result = 1;
+		int needPlatform =1;
+		int i=1;
 		int j=0;
 		
+		for (int j2 = 0; j2 < dep.length; j2++) {
+			System.out.print(", "+arr[j2]);
+		}
+		System.out.println("");
+		
+		for (int j2 = 0; j2 < dep.length; j2++) {
+			System.out.print(", "+dep[j2]);
+		}
+		
+		System.out.println("");
+		
 		while (i<n&& j<n) {
-			
 			if (arr[i]<=dep[j]) {
 				needPlatform++;
 				if (needPlatform>result) {
@@ -69,8 +177,6 @@ public class PlatformNeedOnRailwayStation {
 				needPlatform--;
 				j++;
 			}
-			
-			
 		}
 		
 		
