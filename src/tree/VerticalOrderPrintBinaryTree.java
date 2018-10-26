@@ -43,7 +43,11 @@ public class VerticalOrderPrintBinaryTree {
 	
 		for (Entry<Integer, Vector<Integer>> entry : map.entrySet()) 
         { 
-            System.out.println(entry.getValue()); 
+			Vector<Integer> v = entry.getValue();
+			for (int i = 0; i < v.size(); i++) {
+				System.out.print(" "+v.get(i));
+			}
+//            System.out.println(""); 
         } 
 	}
 
