@@ -18,6 +18,9 @@ public class FindKthCharInString {
 		//int n =4;
 		//1
 		
+		
+		
+		
 		//getKthChar(m, k, n);
 		
 		
@@ -59,6 +62,9 @@ public class FindKthCharInString {
 				}
 			}
 			cArr = sb.toString().toCharArray();
+
+			System.out.println(sb.toString()+"\n");
+			System.out.println("");
 		}
 		
 		return new String(cArr);
