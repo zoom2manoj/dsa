@@ -7,9 +7,9 @@ public class FindKthCharInString {
 
 	public static void main(String[] args) {
 		
-		//int m = 5;
-		//int k = 5;
-		//int n =3;
+		int m = 5;
+		int k = 5;
+		int n =3;
 		// 1
 		
 		
@@ -20,11 +20,12 @@ public class FindKthCharInString {
 		
 		
 		
-		
 		//getKthChar(m, k, n);
+
+ 		getKthString(m, k, n);
 		
 		
-		Scanner kb = new Scanner(System.in);
+		/*Scanner kb = new Scanner(System.in);
 	    int t = kb.nextInt();
 	    for (int i = 0; i < t; i++) {
 			int m= kb.nextInt();
@@ -33,57 +34,56 @@ public class FindKthCharInString {
 			
 			getKthChar(m, k, n);
 			
-		}
+		}*/
 	}
 
-	private static void getKthChar(int m, int k, int n) {
+	private static void getKthString(int m, int k, int n) {
 		// TODO Auto-generated method stub
 		
-		String bin = convertBinary(m);
-		String iteratedBinary = iterationOverbinary(bin, n);
-		//System.out.println(iteratedBinary);
-		System.out.println(iteratedBinary.charAt(k));
+		int division = (int) Math.pow(2, n);
+		int block = k/division;
+		int reminder  = k%division;
 		
+		int s[] = new int[32]; 
+	    int x = 0; 
+	  
+	    // binary representation of M 
+	    for (; m > 0; x++) 
+	    { 
+	        s[x] = m % 2; 
+	        m = m / 2; 
+	    } 
+	    
+	    
+	    int root = s[x - 1 - block];
+	    if (reminder == 0)  
+	    { 
+	        System.out.println(root); 
+	        return; 
+	    } 
+	    
+	    Boolean flip = true; 
+	    while (reminder > 1)  
+	    { 
+	        if ((reminder & 1) > 0) 
+	        { 
+	            flip = !flip; 
+	        } 
+	        reminder = reminder >> 1; 
+	    } 
+	  
+	    if (flip) 
+	    { 
+	    	//myBoolean ? 1 : 0
+	        System.out.println((!(root > 0))?1:0); 
+	    } 
+	    else 
+	    { 
+	        System.out.println(root); 
+	    } 
 		
 	}
 
-	private static String iterationOverbinary(String bin, int n) {
-		// TODO Auto-generated method stub
-		char[] cArr = bin.toCharArray();
-		
-		
-		for (int i = 0; i < n; i++) {
-			StringBuffer sb = new StringBuffer();
-			for (int j = 0; j < cArr.length; j++) {
-				if (cArr[j]=='0') {
-					sb.append("01");
-				}else {
-					sb.append("10");
-				}
-			}
-			cArr = sb.toString().toCharArray();
+	
 
-			System.out.println(sb.toString()+"\n");
-			System.out.println("");
-		}
-		
-		return new String(cArr);
-	}
-
-	private static String convertBinary(int i) {
-		// TODO Auto-generated method stub
-
-		StringBuffer sb = new StringBuffer();
-		
-		while (i != 0) {
-			int reminder = i % 2;
-				
-				sb.append(String.valueOf(reminder));
-		
-		
-			i = i / 2;
-		}
-		//System.out.println(sb.toString());
-		return sb.toString();
-	}
 }
