@@ -1,0 +1,2 @@
+1. create full bt from given pre and postorder 
+2. find cousins of a given node in bt
