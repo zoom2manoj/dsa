@@ -38,6 +38,12 @@ public class LargestNumberFromArrayElement {
 	    	String s = String.valueOf( AObject[i]);
 	        sb.append(s);
 	    }
+	    String tem = sb.toString();
+	    tem = tem.replaceAll("0", "");
+	    
+	    if (tem.length()==0) {
+			return "0";
+		}
 		return sb.toString();
 		
 	}
