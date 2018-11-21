@@ -4,11 +4,11 @@ public class MaxDistance {
 
 	public static void main(String[] args) {
 
-		//int[] arr = {3, 5, 4, 2};
+		int[] arr = {3, 5, 4, 2};
 		//int[] arr ={34, 8, 10, 3, 2, 80, 30, 33, 1};
 		
 		//int[] arr ={1};
-		int[] arr = {100, 100, 100, 100};
+		//int[] arr = {100, 100, 100, 100};
 		System.out.println(maxIndexDiff(arr)+"");
 
 	}
@@ -62,8 +62,7 @@ public class MaxDistance {
 	            { 
 	                maxDiff = max(maxDiff, j - i); 
 	                j = j + 1; 
-	            }  
-	            else 
+	            }  else 
 	                i = i + 1; 
 	        } 
 	  
